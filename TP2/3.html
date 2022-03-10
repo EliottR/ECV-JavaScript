@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+
+<body>
+    <img onclick="widthImage(this)" src="./img1.jpg" alt="">
+    <img onclick="widthImage(this)" src="./img2.jpg" alt="">
+</body>
+
+<style>
+    img {
+        width: 200px;
+    }
+</style>
+
+<script>
+    function widthImage(e) {
+
+        //image clicked
+        let oldWidth = getComputedStyle(e).width.replace(/\D/g, "");
+        console.log(oldWidth + ' CURRENT');
+        let biggerWidth = parseInt(oldWidth) + parseInt(oldWidth * 0.25);
+        e.style.width = `${biggerWidth}px`;
+
+        //next image
+        if (e.nextSibling.nextSibling.nodeName == 'IMG') {
+            let oldWidth1 = getComputedStyle(e.nextElementSibling).width.replace(/\D/g, "");
+            let smallerWidth1 = parseInt(oldWidth1) - parseInt(oldWidth1 * 0.25);
+            console.log(smallerWidth1 + ' FIRST');
+
+            if (smallerWidth1 > 0) {
+                e.nextElementSibling.style.width = `${smallerWidth1}px`
+            }
+        }
+
+        //previous image
+        else {
+            let oldWidth2 = getComputedStyle(e.previousElementSibling).width.replace(/\D/g, "");
+            let smallerWidth2 = parseInt(oldWidth2) - parseInt(oldWidth2 * 0.25);
+            console.log(smallerWidth2 + ' SECOND');
+
+            if (smallerWidth2 > 0) {
+                e.previousElementSibling.style.width = `${smallerWidth2}px`;
+            }
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+</head>
+
+<body>
+    <ul>
+        <li onclick="toTop(this)">Paris</li>
+        <li onclick="toTop(this)">Marseille</li>
+        <li onclick="toTop(this)">Lyon</li>
+        <li onclick="toTop(this)">Dijon</li>
+        <li onclick="toTop(this)">Nice</li>
+    </ul>
+</body>
+
+<script>
+    function toTop(e) {
+        e.parentNode.insertBefore(e, e.parentNode.firstChild)
+    }
+</script>
+
+</html>

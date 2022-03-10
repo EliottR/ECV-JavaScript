@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+
+<body>
+    <img onclick="rotate(this)" src="./img1.jpg" alt="">
+</body>
+
+<style>
+    img {
+        width: 20%;
+    }
+</style>
+
+<script>
+    let x = 0;
+
+    function rotate(e) {
+        x += 90;
+
+        e.style.transform = `rotate(${x}deg)`;
+        if (x == 360) {
+            x = 0;
+            e.style.removeProperty('transform')
+        }
+    }
+</script>
+
+</html>
