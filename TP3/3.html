@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+
+<body>
+
+</body>
+
+<style>
+    div {
+        width: 100%;
+        height: 50px;
+    }
+
+    .red {
+        background-color: red !important;
+    }
+</style>
+
+<script>
+    const nb = Math.floor(Math.random() * 15);
+    let arr = '0123456789ABCDEF';
+    let arr1 = arr.split('');
+
+    for (let i = 0; i < nb; i++) {
+        let div = document.createElement('div')
+        let color = '#';
+
+        for (let j = 0; j < 6; j++) {
+            color += arr1[Math.floor(Math.random() * arr1.length)]
+        }
+
+        div.style.backgroundColor = color
+
+        document.body.appendChild(div)
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target.tagName == 'DIV') e.target.classList.toggle('red')
+    })
+</script>
+
+</html>

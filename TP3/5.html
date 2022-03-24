@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+</head>
+
+<body>
+    <section>Largeur: <p id="largeur"></p>
+    </section>
+
+    <section>Hauteur: <p id="hauteur"></p>
+    </section>
+</body>
+<style>
+    p {
+        display: inline;
+    }
+</style>
+<script>
+    document.getElementById('largeur').textContent = `${window.innerWidth}px`
+    document.getElementById('hauteur').textContent = `${window.innerHeight}px`
+
+    window.addEventListener('resize', () => {
+        document.getElementById('largeur').textContent = `${window.innerWidth}px`
+        document.getElementById('hauteur').textContent = `${window.innerHeight}px`
+    })
+</script>
+
+</html>

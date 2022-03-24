@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4</title>
+</head>
+
+<body>
+    <ul id="ul"></ul>
+</body>
+
+<script>
+    let index = 0;
+
+    window.addEventListener('keydown', (e) => {
+        let li = document.createElement('li')
+        li.textContent = e.key
+
+        document.getElementById('ul').appendChild(li)
+
+        if (document.getElementById('ul').children.length > 20) {
+            document.getElementById('ul').replaceChild(li, document.getElementById('ul').children[index++]);
+
+            if (index > 19) {
+                index = 0;
+            }
+        }
+    })
+</script>
+
+</html>
