@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP4</title>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</body>
+
+<script>
+
+    const revert = (str) => {
+        const newstr = str.split('').reverse().join('');
+
+        document.querySelectorAll('p')[0].innerText = newstr
+
+        return newstr
+    }
+    revert("Hello I'm Robert !")
+
+
+    const ucFirst = (word) => {
+        const splitWord = word.split('')
+        splitWord.splice(0, 1, splitWord[0].toUpperCase())
+        const newWord = splitWord.join('')
+
+        document.querySelectorAll('p')[1].innerText = newWord
+
+        return newWord
+    }
+    ucFirst("hello")
+
+
+    const capitalize = (str) => {
+        const splitWord = str.split('')
+        // splitWord[0] = splitWord[0].toUpperCase()
+        // let newWord = splitWord
+        for (let i = 0; i < splitWord.length; i++) {
+            splitWord[0] = splitWord[0].toUpperCase()
+
+            if (splitWord[i - 1] && splitWord[i - 1] == ' ') {
+                splitWord.splice(i, 1, splitWord[i].toUpperCase())
+            }
+        }
+
+        const newWord = splitWord.join('')
+
+        document.querySelectorAll('p')[2].innerText = newWord
+
+        return newWord
+    }
+    capitalize("hello i'm robert")
+
+
+    const pascalCase = (str) => {
+        const splitWord = str.split('')
+        splitWord[0] = splitWord[0].toUpperCase()
+
+        for (let i = 0; i < splitWord.length; i++) {
+            if (splitWord[i - 1] && splitWord[i - 1] == ' ') {
+                splitWord.splice(i, 1, splitWord[i].toUpperCase())
+            }
+        }
+
+        for (let i = 0; i < splitWord.length; i++) {
+            if (splitWord[i] == ' ') {
+                splitWord.splice(i, 1)
+            }
+        }
+
+        const newWord = splitWord.join('')
+
+        document.querySelectorAll('p')[3].innerText = newWord
+
+        return newWord
+    }
+    pascalCase("sentence in pascalCase")
+
+
+    const palindrome = (str) => {
+        const newstr = str.split('').reverse().join('');
+
+        if (newstr == str) {
+            document.querySelectorAll('p')[4].innerText = true
+        }
+        else {
+            document.querySelectorAll('p')[4].innerText = false
+        }
+
+        return newstr
+    }
+    palindrome("kayak")
+
+
+    const findLongestWord = (str) => {
+        const newstr = str.split(' ')
+        let count = 0;
+        let longest;
+
+        for (let i = 0; i < newstr.length; i++) {
+            // console.log(newstr[i].length);
+            if (newstr[i].length > count) {
+                longest = newstr[i]
+                count = newstr[i].length
+            }
+        }
+
+        document.querySelectorAll('p')[5].innerText = longest
+
+        return longest
+    }
+
+    findLongestWord("le chemin le plus court n'est pas toujours le meilleur")
+</script>
+
+</html>
