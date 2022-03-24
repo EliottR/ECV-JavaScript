@@ -2008,7 +2008,10 @@
 6. Récupérer une page HTML sur internet, au survol de n’importe quel élément, changer la couleur du texte en rouge
 <script>
     window.addEventListener('mouseover', (e) => {
-        e.style.color = 'red'
+        e.target.style.color = 'red'
+    })
+    window.addEventListener('mouseout', (e) => {
+        e.target.style.removeProperty('color')
     })
 </script>
 
