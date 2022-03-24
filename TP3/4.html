@@ -16,7 +16,7 @@
     let index = 0;
 
     window.addEventListener('keydown', (e) => {
-        let li = document.createElement('li')
+        const li = document.createElement('li')
         li.textContent = e.key
 
         document.getElementById('ul').appendChild(li)
