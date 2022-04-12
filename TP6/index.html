@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 2 TP6</title>
+</head>
+
+<body>
+</body>
+<script>
+    const object = {
+        a: [{ x: 2 }, { y: 4 }],
+        b: 1
+    };
+
+    const other = {
+        a: { z: 3 },
+        b: [2, 3],
+        c: 'foo'
+    }
+
+    const merge = (first, second) => {
+        const newObject = {}
+
+        first[Object.keys(first)[0]].push(Object.values(second)[0])
+        second[Object.keys(second)[1]].push(first[Object.keys(first)[1]])
+
+        newObject[Object.keys(first)[0]] = Object.values(first)[0]
+        newObject[Object.keys(second)[1]] = Object.values(second)[1].sort()
+        newObject[Object.keys(second)[2]] = Object.values(second)[2]
+
+
+        return newObject
+    }
+
+    console.log(merge(object, other));
+</script>
+
+</html>
