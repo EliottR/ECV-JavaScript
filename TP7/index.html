@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP7</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //exo 1
+    const str = 'bonjour je m\'appelle Eliott'
+
+    const checkLength = (str) => {
+        return new Promise((success, failure) => {
+            if (str.length > 20) {
+                success()
+            }
+            else {
+                failure()
+            }
+        })
+    }
+
+    const success = () => {
+        return true
+    }
+
+    const failure = () => {
+        return false;
+    }
+
+    const exo1 = checkLength(str)
+    console.log(exo1.then(success, failure))
+
+    //exo 2
+    const checkInt = (int1, int2) => {
+        return new Promise((resolve, reject) => {
+            if (int1 > int2) {
+                resolve(int1 - int2)
+            }
+            else {
+                reject()
+            }
+        })
+    }
+
+    const resolve = (diff) => {
+        return diff
+    }
+
+    const reject = () => {
+        return;
+    }
+
+    const exo2 = checkInt(1, 2)
+    console.log(exo2.then(resolve, reject))
+
+    //exo3
+    const checkDate = (date) => {
+        date = new Date(date)
+        date = Date.now() - date.getTime();
+        age = new Date(date);
+        date = Math.abs(age.getUTCFullYear() - 1970)
+
+        console.log(date);
+
+        return new Promise((success, failure) => {
+            if (date >= 18) {
+                success()
+            }
+            else {
+                failure()
+            }
+        })
+    }
+
+    const exo3 = checkDate("07/06/1998")
+    console.log(exo3.then(success, failure))
+</script>
+
+</html>
